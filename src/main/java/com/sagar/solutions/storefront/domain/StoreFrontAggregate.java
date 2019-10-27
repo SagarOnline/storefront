@@ -16,16 +16,15 @@ public class StoreFrontAggregate implements Aggregate {
     private String name = "MyShop";
 
 
-
     @Transactional
-    public void setupNewShoppingCounter(String name){
+    public void setupNewShoppingCounter(String name) {
 
         final ShoppingCounterRepository shoppingCounterRepository = getShoppingCounterRepository();
-        ShoppingCounter shoppingCounter = shoppingCounterRepository.findByCounterName(name);
-        if(shoppingCounter !=null){
-            throw new IllegalArgumentException("Shopping Counter with name "+ name + " already exists. Please setup a" +
+        Optional<ShoppingCounter> shoppingCounter = shoppingCounterRepository.findByCounterName(name);
+        if (shoppingCounter.isPresent()) {
+            throw new IllegalArgumentException("Shopping Counter with name " + name + " already exists. Please setup a" +
                     " counter with new Name");
-        }else{
+        } else {
             shoppingCounterRepository.save(new ShoppingCounter(name));
         }
 
@@ -35,13 +34,10 @@ public class StoreFrontAggregate implements Aggregate {
         return BeanUtil.getBean(ShoppingCounterRepository.class);
     }
 
-    public Optional<ShoppingCounterAggregate> getShoppingCounter(String counterName){
-        Optional<ShoppingCounterAggregate> shoppingCounterAggregate = Optional.empty();
+    public Optional<ShoppingCounterAggregate> getShoppingCounter(String counterName) {
         final ShoppingCounterRepository shoppingCounterRepository = getShoppingCounterRepository();
-        ShoppingCounter shoppingCounter = shoppingCounterRepository.findByCounterName(counterName);
-        if(shoppingCounter!=null){
-            shoppingCounterAggregate = Optional.of(new ShoppingCounterAggregate(shoppingCounter));
-        }
+        Optional<ShoppingCounter> shoppingCounter = shoppingCounterRepository.findByCounterName(counterName);
+        Optional<ShoppingCounterAggregate> shoppingCounterAggregate = shoppingCounter.map(value -> new ShoppingCounterAggregate(shoppingCounter.get()));
         return shoppingCounterAggregate;
     }
 

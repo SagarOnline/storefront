@@ -18,18 +18,34 @@ import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureTestDatabase
-public class ShoppingCounterTest {
+public class StoreFrontAggregateTest {
 
     @Autowired
     private StoreFrontService storeFrontService;
 
     @Test
-    public void testRepository(){
+    public void testSetupNewCounterAndGetIt(){
         StoreFrontAggregate storeFront = storeFrontService.getStoreFront();
         storeFront.setupNewShoppingCounter("First");
 
         Optional<ShoppingCounterAggregate> firstCounter = storeFront.getShoppingCounter("First");
         assertTrue(firstCounter.isPresent());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testSettingUpDuplicateCounter(){
+        StoreFrontAggregate storeFront = storeFrontService.getStoreFront();
+        storeFront.setupNewShoppingCounter("Counter1");
+        storeFront.setupNewShoppingCounter("Counter1");
+
+    }
+
+    @Test
+    public void testGetNonExistingShoppingCounter(){
+        StoreFrontAggregate storeFront = storeFrontService.getStoreFront();
+
+        Optional<ShoppingCounterAggregate> firstCounter = storeFront.getShoppingCounter("Invalid Counter");
+        assertFalse(firstCounter.isPresent());
     }
 
 }

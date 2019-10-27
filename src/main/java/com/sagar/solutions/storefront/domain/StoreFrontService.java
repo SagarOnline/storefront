@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 public class StoreFrontService {
 
 
+    /**
+     * Returns the StoreFront instance which represents the Online Store.
+     * @return
+     */
     public StoreFrontAggregate getStoreFront(){
         return new StoreFrontAggregate();
     }
