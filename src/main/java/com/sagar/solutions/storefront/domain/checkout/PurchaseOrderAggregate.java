@@ -1,10 +1,8 @@
-package com.sagar.solutions.storefront.checkout;
+package com.sagar.solutions.storefront.domain.checkout;
 
 import com.sagar.ddd.Aggregate;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-
-import java.math.BigDecimal;
 
 @RequiredArgsConstructor
 public class PurchaseOrderAggregate implements Aggregate {

@@ -1,4 +1,4 @@
-package com.sagar.solutions.storefront.shoppingcart;
+package com.sagar.solutions.storefront.domain.shoppingcart;
 
 public class CartItem {
 

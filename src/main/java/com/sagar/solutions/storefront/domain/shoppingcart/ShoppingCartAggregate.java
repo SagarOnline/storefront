@@ -1,10 +1,9 @@
-package com.sagar.solutions.storefront.shoppingcart;
+package com.sagar.solutions.storefront.domain.shoppingcart;
 
-import com.sagar.solutions.storefront.checkout.PurchaseOrderAggregate;
+import com.sagar.solutions.storefront.domain.checkout.PurchaseOrderAggregate;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 @RequiredArgsConstructor

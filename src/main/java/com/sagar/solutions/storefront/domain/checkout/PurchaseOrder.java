@@ -1,4 +1,4 @@
-package com.sagar.solutions.storefront.checkout;
+package com.sagar.solutions.storefront.domain.checkout;
 
 import lombok.Data;
 
