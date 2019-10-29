@@ -11,7 +11,7 @@ public class ShoppingCart {
 
     private CartStatus cartStatus;
 
-    private Integer purchaseOrderId;
+    private Long purchaseOrderId;
 
 
 
