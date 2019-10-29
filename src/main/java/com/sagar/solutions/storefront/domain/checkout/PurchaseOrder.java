@@ -3,7 +3,7 @@ package com.sagar.solutions.storefront.domain.checkout;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,8 @@ import java.util.List;
 @Entity
 public class PurchaseOrder {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long purchaseOrderId;
 
     private String customerName;
@@ -20,7 +22,8 @@ public class PurchaseOrder {
 
     private BigDecimal totalSalesTax;
 
-    private List<OrderItem> orderItems = new ArrayList<>();
+    @OneToMany
+    private List<OrderItem> orderItems;
 
 }
 

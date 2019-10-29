@@ -3,9 +3,7 @@ package com.sagar.solutions.storefront.domain.salestax;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @NoArgsConstructor
@@ -13,6 +11,8 @@ import java.math.BigDecimal;
 @Entity
 public class ProductCategorySalesTax {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long productCategoryId;
 
     @Enumerated(EnumType.ORDINAL)

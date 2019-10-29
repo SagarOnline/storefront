@@ -5,6 +5,7 @@ import com.sagar.solutions.storefront.domain.checkout.PurchaseOrderAggregate;
 import com.sagar.solutions.storefront.domain.checkout.PurchaseOrderBuilder;
 import com.sagar.solutions.storefront.domain.checkout.PurchaseOrderRepository;
 import com.sagar.solutions.storefront.util.BeanUtil;
+import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +16,7 @@ import java.util.List;
 public class ShoppingCartAggregate {
 
     @NonNull
+    @Getter
     private ShoppingCart shoppingCart;
 
 
@@ -38,7 +40,7 @@ public class ShoppingCartAggregate {
 
         //update shopping cart entity
         this.shoppingCart.setPurchaseOrderId(purchaseOrder.getPurchaseOrderId());
-        this.shoppingCart.setCartStatus(CartStatus.CHECKEDOUT);
+        this.shoppingCart.setCartStatus(ShoppingCart.CartStatus.CHECKEDOUT);
         ShoppingCartRepository shoppingCartRepository = BeanUtil.getBean(ShoppingCartRepository.class);
         shoppingCartRepository.save(this.shoppingCart);
         return null;
