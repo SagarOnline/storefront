@@ -4,7 +4,6 @@ import com.sagar.ddd.Aggregate;
 import com.sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounter;
 import com.sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterAggregate;
 import com.sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterRepository;
-import com.sagar.solutions.storefront.util.BeanUtil;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

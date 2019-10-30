@@ -1,24 +1,18 @@
 package com.sagar.solutions.storefront.domain.shoppingcounter;
 
 import com.sagar.ddd.Aggregate;
-import com.sagar.solutions.storefront.domain.StoreFrontAggregate;
 import com.sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
 import com.sagar.solutions.storefront.domain.shoppingcart.ShoppingCartAggregate;
 import com.sagar.solutions.storefront.domain.shoppingcart.ShoppingCartRepository;
-import com.sagar.solutions.storefront.util.BeanUtil;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor

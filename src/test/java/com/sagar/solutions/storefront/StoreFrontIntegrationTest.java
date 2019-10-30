@@ -33,8 +33,6 @@ public class StoreFrontIntegrationTest {
 
         Optional<ShoppingCounterAggregate> firstCounter = storeFront.getShoppingCounter("First");
         assertTrue(firstCounter.isPresent());
-
-        storeFront.getShoppingCounter("First");
     }
 
     @Test(expected = IllegalArgumentException.class)

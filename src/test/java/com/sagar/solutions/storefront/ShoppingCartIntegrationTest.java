@@ -86,7 +86,7 @@ public class ShoppingCartIntegrationTest {
         //shoppingCartAggregate.addToCart("iPhone 7 Case", 2);
         List<CartItem> itemsInCart = shoppingCartAggregate.getItemsInCart();
         assertEquals(2, itemsInCart.size());
-        //TODO : add asserts to check results
+        //TODO : add more asserts to check results
 
     }
 
