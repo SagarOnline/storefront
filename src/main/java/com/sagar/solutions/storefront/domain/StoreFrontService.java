@@ -8,19 +8,17 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
-@Configuration
 public class StoreFrontService {
 
-
+    @Autowired
+    private StoreFrontAggregate.StoreFrontAggregateFactory storeFrontAggregateFactory;
 
     /**
      * Returns the StoreFront instance which represents the Online Store.
      * @return
      */
-    @Bean
-    @Scope("prototype")
     public StoreFrontAggregate getStoreFront(){
-        return new StoreFrontAggregate();
+        return storeFrontAggregateFactory.getStoreFrontAggregate();
     }
 
 }

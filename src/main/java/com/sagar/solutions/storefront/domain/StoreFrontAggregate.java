@@ -15,10 +15,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 @Getter
-@Configuration
 public class StoreFrontAggregate implements Aggregate {
 
     private String name = "MyShop";
+
+    @Autowired
+    private ShoppingCounterAggregate.ShoppingCounterAggregateFactory shoppingCounterAggregateFactory;
 
     @Autowired
     private ShoppingCounterRepository shoppingCounterRepository;
@@ -37,14 +39,22 @@ public class StoreFrontAggregate implements Aggregate {
 
     }
 
-    @Bean
-    @Scope("prototype")
     public Optional<ShoppingCounterAggregate> getShoppingCounter(String counterName) {
         Optional<ShoppingCounter> shoppingCounter = shoppingCounterRepository.findByCounterName(counterName);
         Optional<ShoppingCounterAggregate> shoppingCounterAggregate = shoppingCounter.map(value -> {
-            return new ShoppingCounterAggregate(value);
+            return shoppingCounterAggregateFactory.getShoppingCounterAggregate(value);
         });
         return shoppingCounterAggregate;
+    }
+
+    @Configuration
+    public static class StoreFrontAggregateFactory{
+
+        @Bean
+        @Scope("prototype")
+        public StoreFrontAggregate getStoreFrontAggregate(){
+            return new StoreFrontAggregate();
+        }
     }
 
 }

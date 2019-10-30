@@ -5,10 +5,16 @@ import com.sagar.solutions.storefront.domain.checkout.PurchaseOrderAggregate;
 import com.sagar.solutions.storefront.domain.checkout.PurchaseOrderBuilder;
 import com.sagar.solutions.storefront.domain.checkout.PurchaseOrderRepository;
 import com.sagar.solutions.storefront.domain.productcatalog.Product;
+import com.sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounter;
+import com.sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterAggregate;
 import com.sagar.solutions.storefront.util.BeanUtil;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
@@ -16,6 +22,15 @@ import java.util.List;
 
 @RequiredArgsConstructor
 public class ShoppingCartAggregate {
+
+    @Autowired
+    private PurchaseOrderAggregate.PurchaseOrderAggregateAggregateFactory purchaseOrderAggregateAggregateFactory;
+
+    @Autowired
+    private PurchaseOrderRepository purchaseOrderRepository;
+
+    @Autowired
+    private ShoppingCartRepository shoppingCartRepository;
 
     @NonNull
     @Getter
@@ -38,15 +53,13 @@ public class ShoppingCartAggregate {
     @Transactional
     public PurchaseOrderAggregate checkoutCart(){
         PurchaseOrder purchaseOrder = createPurchaseOrderFromShoppingCart();
-        PurchaseOrderRepository purchaseOrderRepository = BeanUtil.getBean(PurchaseOrderRepository.class);
-        purchaseOrderRepository.save(purchaseOrder);
+        this.purchaseOrderRepository.save(purchaseOrder);
 
         //update shopping cart entity
         this.shoppingCart.setPurchaseOrderId(purchaseOrder.getPurchaseOrderId());
         this.shoppingCart.setCartStatus(ShoppingCart.CartStatus.CHECKEDOUT);
-        ShoppingCartRepository shoppingCartRepository = BeanUtil.getBean(ShoppingCartRepository.class);
-        shoppingCartRepository.save(this.shoppingCart);
-        return new PurchaseOrderAggregate(purchaseOrder);
+        this.shoppingCartRepository.save(this.shoppingCart);
+        return purchaseOrderAggregateAggregateFactory.getPurchaseOrderAggregate(purchaseOrder);
     }
 
     private PurchaseOrder createPurchaseOrderFromShoppingCart() {
@@ -62,6 +75,15 @@ public class ShoppingCartAggregate {
     }
 
 
+    @Configuration
+    public static class ShoppingCartAggregateAggregateFactory{
+
+        @Bean
+        @Scope("prototype")
+        public ShoppingCartAggregate getShoppingCartAggregate(ShoppingCart shoppingCart){
+            return new ShoppingCartAggregate(shoppingCart);
+        }
+    }
 
 
 }
