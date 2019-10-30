@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -34,6 +36,9 @@ public class ShoppingCart {
 
     @Setter
     private Long purchaseOrderId;
+
+    @OneToMany
+    private List<CartItem> cartItemList = new ArrayList<>();
 
 
 

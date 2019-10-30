@@ -1,6 +1,5 @@
-package com.sagar.solutions.storefront.domain.shoppingcart;
+package com.sagar.solutions.storefront.domain.productcatalog;
 
-import com.sagar.solutions.storefront.domain.productcatalog.Product;
 import com.sagar.solutions.storefront.domain.salestax.ProductCategory;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,25 +9,23 @@ import lombok.RequiredArgsConstructor;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-@Getter
-@NoArgsConstructor
-@RequiredArgsConstructor
 @Entity
-public class CartItem {
+@NoArgsConstructor
+@Getter
+@RequiredArgsConstructor
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long cartItemId;
+    private Long productId;
 
     @NonNull
-    @OneToOne
-    private Product product;
+    private String productName;
 
     @NonNull
-    private BigDecimal quantity;
+    @Enumerated
+    private ProductCategory salesTaxProductCategory;
 
-
-    public BigDecimal getTotalPrice(){
-        return quantity.multiply(this.product.getUnitPrice());
-    }
+    @NonNull
+    private BigDecimal unitPrice;
 }

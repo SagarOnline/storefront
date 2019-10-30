@@ -36,11 +36,11 @@ public class SalesTaxCalculator {
     }
 
     public BigDecimal calculateSalesTax(CartItem cartItem){
-        ProductCategory salesTaxProductCategory = cartItem.getSalesTaxProductCategory();
+        ProductCategory salesTaxProductCategory = cartItem.getProduct().getSalesTaxProductCategory();
         BigDecimal applicableTaxInPercentage = productCategorySalesTaxMap.get(salesTaxProductCategory);
         if(applicableTaxInPercentage == null){
             throw new IllegalArgumentException("Invalid Product Category. No sales tax data available for product " +
-                    "category :"+ cartItem.getSalesTaxProductCategory());
+                    "category :"+ cartItem.getProduct().getSalesTaxProductCategory());
         }
         BigDecimal salesTax = cartItem.getTotalPrice().multiply(applicableTaxInPercentage).divide(new BigDecimal(100));
         return salesTax;

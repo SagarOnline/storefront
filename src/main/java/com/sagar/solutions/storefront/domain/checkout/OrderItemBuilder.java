@@ -23,9 +23,9 @@ public class OrderItemBuilder {
         }
 
         OrderItem orderItem = new OrderItem();
-        orderItem.setProductName(this.cartItem.getProductName());
+        orderItem.setProductName(this.cartItem.getProduct().getProductName());
         orderItem.setOrderQuantity(this.cartItem.getQuantity());
-        orderItem.setUnitPrice(this.cartItem.getUnitPrice());
+        orderItem.setUnitPrice(this.cartItem.getProduct().getUnitPrice());
         BigDecimal totalSalesTax = this.salesTaxCalculator.calculateSalesTax(cartItem);
         orderItem.setTotalSalesTax(totalSalesTax);
         orderItem.setTotalPrice(totalSalesTax.add(this.cartItem.getTotalPrice()));

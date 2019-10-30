@@ -4,12 +4,14 @@ import com.sagar.solutions.storefront.domain.checkout.PurchaseOrder;
 import com.sagar.solutions.storefront.domain.checkout.PurchaseOrderAggregate;
 import com.sagar.solutions.storefront.domain.checkout.PurchaseOrderBuilder;
 import com.sagar.solutions.storefront.domain.checkout.PurchaseOrderRepository;
+import com.sagar.solutions.storefront.domain.productcatalog.Product;
 import com.sagar.solutions.storefront.util.BeanUtil;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -19,8 +21,9 @@ public class ShoppingCartAggregate {
     @Getter
     private ShoppingCart shoppingCart;
 
-
-    public void addToCart(String productId, Integer quantity){
+    @Transactional
+    public void addToCart(Product product, BigDecimal quantity){
+        this.shoppingCart.getCartItemList().add(new CartItem(product, quantity));
 
     }
 
@@ -29,7 +32,7 @@ public class ShoppingCartAggregate {
     }
 
     public List<CartItem> getItemsInCart(){
-        return null;
+        return shoppingCart.getCartItemList();
     }
 
     @Transactional
