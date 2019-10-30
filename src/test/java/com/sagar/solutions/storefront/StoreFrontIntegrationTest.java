@@ -3,6 +3,7 @@ package com.sagar.solutions.storefront;
 import com.sagar.solutions.storefront.domain.StoreFrontAggregate;
 import com.sagar.solutions.storefront.domain.StoreFrontService;
 import com.sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterAggregate;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,8 @@ public class StoreFrontIntegrationTest {
 
         Optional<ShoppingCounterAggregate> firstCounter = storeFront.getShoppingCounter("First");
         assertTrue(firstCounter.isPresent());
+
+        storeFront.getShoppingCounter("First");
     }
 
     @Test(expected = IllegalArgumentException.class)

@@ -7,11 +7,15 @@ import com.sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterRepo
 import com.sagar.solutions.storefront.util.BeanUtil;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
 @Getter
+@Configuration
 public class StoreFrontAggregate implements Aggregate {
 
     private String name = "MyShop";
@@ -33,9 +37,13 @@ public class StoreFrontAggregate implements Aggregate {
 
     }
 
+    @Bean
+    @Scope("prototype")
     public Optional<ShoppingCounterAggregate> getShoppingCounter(String counterName) {
         Optional<ShoppingCounter> shoppingCounter = shoppingCounterRepository.findByCounterName(counterName);
-        Optional<ShoppingCounterAggregate> shoppingCounterAggregate = shoppingCounter.map(value -> new ShoppingCounterAggregate(shoppingCounter.get()));
+        Optional<ShoppingCounterAggregate> shoppingCounterAggregate = shoppingCounter.map(value -> {
+            return new ShoppingCounterAggregate(value);
+        });
         return shoppingCounterAggregate;
     }
 
