@@ -1,5 +1,16 @@
 package com.sagar.solutions.storefront.domain.salestax;
 
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 public enum ProductCategory {
-    CATEGORY_A, CATEGORY_B, CATEGORY_C;
+    CATEGORY_A ("Category A"), CATEGORY_B("Category B"), CATEGORY_C("Category C");
+
+    @Getter
+    @NonNull
+    private String categoryName;
+
+
 }

@@ -46,7 +46,7 @@ public class ShoppingCartAggregate {
         this.shoppingCart.setCartStatus(ShoppingCart.CartStatus.CHECKEDOUT);
         ShoppingCartRepository shoppingCartRepository = BeanUtil.getBean(ShoppingCartRepository.class);
         shoppingCartRepository.save(this.shoppingCart);
-        return null;
+        return new PurchaseOrderAggregate(purchaseOrder);
     }
 
     private PurchaseOrder createPurchaseOrderFromShoppingCart() {

@@ -37,7 +37,7 @@ public class ShoppingCart {
     @Setter
     private Long purchaseOrderId;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<CartItem> cartItemList = new ArrayList<>();
 
 

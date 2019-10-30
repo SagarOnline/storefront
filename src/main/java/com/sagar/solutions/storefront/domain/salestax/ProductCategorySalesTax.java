@@ -2,11 +2,14 @@ package com.sagar.solutions.storefront.domain.salestax;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @NoArgsConstructor
+@RequiredArgsConstructor
 @Getter
 @Entity
 public class ProductCategorySalesTax {
@@ -15,11 +18,11 @@ public class ProductCategorySalesTax {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long productCategoryId;
 
+    @NonNull
     @Enumerated(EnumType.ORDINAL)
     private ProductCategory productCategoryCode;
 
-    private String productCategoryName;
-
+    @NonNull
     private BigDecimal salesTaxApplicable;
 
 }

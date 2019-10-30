@@ -21,7 +21,7 @@ public class CartItem {
     private Long cartItemId;
 
     @NonNull
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Product product;
 
     @NonNull

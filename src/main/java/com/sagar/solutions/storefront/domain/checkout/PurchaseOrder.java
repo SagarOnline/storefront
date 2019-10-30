@@ -22,7 +22,7 @@ public class PurchaseOrder {
 
     private BigDecimal totalSalesTax;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<OrderItem> orderItems;
 
 }
