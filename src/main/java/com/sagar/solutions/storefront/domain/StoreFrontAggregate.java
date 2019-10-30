@@ -6,6 +6,7 @@ import com.sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterAggr
 import com.sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterRepository;
 import com.sagar.solutions.storefront.util.BeanUtil;
 import lombok.Getter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
@@ -15,11 +16,13 @@ public class StoreFrontAggregate implements Aggregate {
 
     private String name = "MyShop";
 
+    @Autowired
+    private ShoppingCounterRepository shoppingCounterRepository;
+
 
     @Transactional
     public void setupNewShoppingCounter(String name) {
 
-        final ShoppingCounterRepository shoppingCounterRepository = getShoppingCounterRepository();
         Optional<ShoppingCounter> shoppingCounter = shoppingCounterRepository.findByCounterName(name);
         if (shoppingCounter.isPresent()) {
             throw new IllegalArgumentException("Shopping Counter with name " + name + " already exists. Please setup a" +
@@ -30,12 +33,7 @@ public class StoreFrontAggregate implements Aggregate {
 
     }
 
-    private ShoppingCounterRepository getShoppingCounterRepository() {
-        return BeanUtil.getBean(ShoppingCounterRepository.class);
-    }
-
     public Optional<ShoppingCounterAggregate> getShoppingCounter(String counterName) {
-        final ShoppingCounterRepository shoppingCounterRepository = getShoppingCounterRepository();
         Optional<ShoppingCounter> shoppingCounter = shoppingCounterRepository.findByCounterName(counterName);
         Optional<ShoppingCounterAggregate> shoppingCounterAggregate = shoppingCounter.map(value -> new ShoppingCounterAggregate(shoppingCounter.get()));
         return shoppingCounterAggregate;
