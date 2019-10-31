@@ -1,5 +1,6 @@
 package com.sagar.solutions.storefront.domain.checkout;
 
+import com.sagar.solutions.storefront.domain.salestax.Cost;
 import com.sagar.solutions.storefront.domain.salestax.SalesTaxCalculator;
 import com.sagar.solutions.storefront.domain.shoppingcart.CartItem;
 import com.sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
@@ -31,21 +32,29 @@ public class PurchaseOrderBuilder {
         List<OrderItem> orderItemList = getOrderItems(salesTaxCalculator);
         purchaseOrder.setOrderItems(orderItemList);
 
-        purchaseOrder.setTotalSalesTax(calculateTotalSalesTax(orderItemList));
-        purchaseOrder.setTotalPrice(calculateTotalPrice(orderItemList));
+        BigDecimal totalSalesTax = calculateTotalSalesTax(orderItemList);
+        BigDecimal subTotalPrice = calculateSubtotalPrice(orderItemList);
+        Cost totalPrice = new Cost(subTotalPrice, totalSalesTax);
+        purchaseOrder.setTotalPrice(totalPrice);
 
         return purchaseOrder;
     }
 
     private BigDecimal calculateTotalSalesTax(List<OrderItem> orderItemList) {
         BigDecimal totalSalesTax = new BigDecimal(0);
-        orderItemList.forEach(item -> totalSalesTax.add(item.getTotalSalesTax()));
+        orderItemList.forEach(item -> totalSalesTax.add(item.getTotalCost().getSalesTax()));
         return totalSalesTax;
     }
 
     private BigDecimal calculateTotalPrice(List<OrderItem> orderItemList) {
         BigDecimal totalPrice = new BigDecimal(0);
-        orderItemList.forEach(item -> totalPrice.add(item.getTotalPrice()));
+        orderItemList.forEach(item -> totalPrice.add(item.getTotalCost().getTotal()));
+        return totalPrice;
+    }
+
+    private BigDecimal calculateSubtotalPrice(List<OrderItem> orderItemList) {
+        BigDecimal totalPrice = new BigDecimal(0);
+        orderItemList.forEach(item -> totalPrice.add(item.getTotalCost().getTotal()));
         return totalPrice;
     }
 

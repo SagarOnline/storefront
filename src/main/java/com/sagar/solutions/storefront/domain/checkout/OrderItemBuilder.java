@@ -1,5 +1,6 @@
 package com.sagar.solutions.storefront.domain.checkout;
 
+import com.sagar.solutions.storefront.domain.salestax.Cost;
 import com.sagar.solutions.storefront.domain.salestax.SalesTaxCalculator;
 import com.sagar.solutions.storefront.domain.shoppingcart.CartItem;
 
@@ -26,9 +27,11 @@ public class OrderItemBuilder {
         orderItem.setProductName(this.cartItem.getProduct().getProductName());
         orderItem.setOrderQuantity(this.cartItem.getQuantity());
         orderItem.setUnitPrice(this.cartItem.getProduct().getUnitPrice());
+
         BigDecimal totalSalesTax = this.salesTaxCalculator.calculateSalesTax(cartItem);
-        orderItem.setTotalSalesTax(totalSalesTax);
-        orderItem.setTotalPrice(totalSalesTax.add(this.cartItem.getTotalPrice()));
+
+        Cost itemCost = new Cost(this.cartItem.getTotalPrice(), totalSalesTax);
+        orderItem.setTotalCost(itemCost);
 
         return orderItem;
     }

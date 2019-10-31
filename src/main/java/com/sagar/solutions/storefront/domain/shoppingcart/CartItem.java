@@ -2,10 +2,12 @@ package com.sagar.solutions.storefront.domain.shoppingcart;
 
 import com.sagar.solutions.storefront.domain.productcatalog.Product;
 import com.sagar.solutions.storefront.domain.salestax.ProductCategory;
+import com.sagar.solutions.storefront.util.BeanUtil;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -29,6 +31,16 @@ public class CartItem {
 
 
     public BigDecimal getTotalPrice(){
-        return quantity.multiply(this.product.getUnitPrice());
+        TotalCalculator totalCalculator = BeanUtil.getBean(TotalCalculator.class);
+        return totalCalculator.calculate(this.product.getUnitPrice(), this.quantity);
+    }
+
+    @Component
+    public static class TotalCalculator{
+
+        public BigDecimal calculate(BigDecimal unitPrice, BigDecimal quantity){
+            return quantity.multiply(unitPrice);
+        }
+
     }
 }

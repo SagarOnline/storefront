@@ -1,5 +1,6 @@
 package com.sagar.solutions.storefront.domain.checkout;
 
+import com.sagar.solutions.storefront.domain.salestax.Cost;
 import lombok.Builder;
 import lombok.Data;
 
@@ -18,9 +19,7 @@ public class PurchaseOrder {
 
     private String customerName;
 
-    private BigDecimal totalPrice;
-
-    private BigDecimal totalSalesTax;
+    private Cost totalPrice;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<OrderItem> orderItems;
