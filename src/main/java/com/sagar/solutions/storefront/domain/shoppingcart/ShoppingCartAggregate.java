@@ -4,7 +4,7 @@ import com.sagar.solutions.storefront.domain.checkout.PurchaseOrder;
 import com.sagar.solutions.storefront.domain.checkout.PurchaseOrderAggregate;
 import com.sagar.solutions.storefront.domain.checkout.PurchaseOrderBuilder;
 import com.sagar.solutions.storefront.domain.checkout.PurchaseOrderRepository;
-import com.sagar.solutions.storefront.domain.productcatalog.Product;
+import com.sagar.solutions.storefront.domain.product.Product;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

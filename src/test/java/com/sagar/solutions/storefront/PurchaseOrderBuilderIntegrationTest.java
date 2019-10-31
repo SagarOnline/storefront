@@ -3,10 +3,10 @@ package com.sagar.solutions.storefront;
 
 import com.sagar.solutions.storefront.domain.checkout.PurchaseOrder;
 import com.sagar.solutions.storefront.domain.checkout.PurchaseOrderBuilder;
-import com.sagar.solutions.storefront.domain.productcatalog.Product;
-import com.sagar.solutions.storefront.domain.salestax.ProductCategory;
-import com.sagar.solutions.storefront.domain.salestax.ProductCategorySalesTax;
-import com.sagar.solutions.storefront.domain.salestax.ProductCategorySalesTaxRepository;
+import com.sagar.solutions.storefront.domain.product.Product;
+import com.sagar.solutions.storefront.domain.cost.ProductCategory;
+import com.sagar.solutions.storefront.domain.cost.ProductCategorySalesTax;
+import com.sagar.solutions.storefront.domain.cost.ProductCategorySalesTaxRepository;
 import com.sagar.solutions.storefront.domain.shoppingcart.CartItem;
 import com.sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
 import org.junit.Before;

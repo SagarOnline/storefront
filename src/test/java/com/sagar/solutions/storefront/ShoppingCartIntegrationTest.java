@@ -2,8 +2,8 @@ package com.sagar.solutions.storefront;
 
 import com.sagar.solutions.storefront.domain.StoreFrontAggregate;
 import com.sagar.solutions.storefront.domain.StoreFrontService;
-import com.sagar.solutions.storefront.domain.productcatalog.Product;
-import com.sagar.solutions.storefront.domain.salestax.ProductCategory;
+import com.sagar.solutions.storefront.domain.product.Product;
+import com.sagar.solutions.storefront.domain.cost.ProductCategory;
 import com.sagar.solutions.storefront.domain.shoppingcart.CartItem;
 import com.sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
 import com.sagar.solutions.storefront.domain.shoppingcart.ShoppingCartAggregate;

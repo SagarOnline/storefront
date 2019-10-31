@@ -1,7 +1,7 @@
 package com.sagar.solutions.storefront.domain.checkout;
 
-import com.sagar.solutions.storefront.domain.salestax.Cost;
-import com.sagar.solutions.storefront.domain.salestax.SalesTaxCalculator;
+import com.sagar.solutions.storefront.domain.cost.Cost;
+import com.sagar.solutions.storefront.domain.cost.SalesTaxCalculator;
 import com.sagar.solutions.storefront.domain.shoppingcart.CartItem;
 
 import java.math.BigDecimal;

@@ -1,12 +1,9 @@
 package com.sagar.solutions.storefront.domain.checkout;
 
-import com.sagar.solutions.storefront.domain.salestax.Cost;
-import lombok.Builder;
+import com.sagar.solutions.storefront.domain.cost.Cost;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data

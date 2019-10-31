@@ -1,6 +1,6 @@
 package com.sagar.solutions.storefront;
 
-import com.sagar.solutions.storefront.domain.salestax.Cost;
+import com.sagar.solutions.storefront.domain.cost.Cost;
 import org.junit.Test;
 
 import java.math.BigDecimal;

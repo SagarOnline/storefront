@@ -1,4 +1,4 @@
-package com.sagar.solutions.storefront.domain.salestax;
+package com.sagar.solutions.storefront.domain.cost;
 
 import com.sagar.solutions.storefront.domain.shoppingcart.CartItem;
 import com.sagar.solutions.storefront.util.BeanUtil;

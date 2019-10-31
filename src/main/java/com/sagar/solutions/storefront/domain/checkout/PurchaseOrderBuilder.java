@@ -1,11 +1,9 @@
 package com.sagar.solutions.storefront.domain.checkout;
 
-import com.sagar.solutions.storefront.domain.salestax.Cost;
-import com.sagar.solutions.storefront.domain.salestax.SalesTaxCalculator;
+import com.sagar.solutions.storefront.domain.cost.Cost;
+import com.sagar.solutions.storefront.domain.cost.SalesTaxCalculator;
 import com.sagar.solutions.storefront.domain.shoppingcart.CartItem;
 import com.sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
-import org.aspectj.weaver.ast.Or;
-import org.hibernate.criterion.Order;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
-package com.sagar.solutions.storefront.domain.productcatalog;
+package com.sagar.solutions.storefront.domain.product;
 
-import com.sagar.solutions.storefront.domain.salestax.ProductCategory;
+import com.sagar.solutions.storefront.domain.cost.ProductCategory;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
