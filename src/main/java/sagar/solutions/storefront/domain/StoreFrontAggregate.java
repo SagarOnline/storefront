@@ -52,6 +52,7 @@ public class StoreFrontAggregate implements Aggregate {
         @Bean
         @Scope("prototype")
         public StoreFrontAggregate getStoreFrontAggregate(){
+            // its implemented for a single store.
             return new StoreFrontAggregate();
         }
     }
