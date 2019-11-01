@@ -1,9 +1,9 @@
-package com.sagar.solutions.storefront.domain.checkout;
+package sagar.solutions.storefront.domain.checkout;
 
-import com.sagar.solutions.storefront.domain.cost.Cost;
-import com.sagar.solutions.storefront.domain.cost.SalesTaxCalculator;
-import com.sagar.solutions.storefront.domain.shoppingcart.CartItem;
-import com.sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
+import sagar.solutions.storefront.domain.cost.Cost;
+import sagar.solutions.storefront.domain.cost.SalesTaxCalculator;
+import sagar.solutions.storefront.domain.shoppingcart.CartItem;
+import sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

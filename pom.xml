@@ -8,11 +8,11 @@
         <version>2.2.0.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.sagar.solutions</groupId>
+    <groupId>sagar.solutions</groupId>
     <artifactId>storefront</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>storefront</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Store Front domain model</description>
 
     <properties>
         <java.version>1.8</java.version>

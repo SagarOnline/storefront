@@ -1,6 +1,6 @@
-package com.sagar.solutions.storefront.domain.checkout;
+package sagar.solutions.storefront.domain.checkout;
 
-import com.sagar.ddd.Aggregate;
+import sagar.ddd.Aggregate;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

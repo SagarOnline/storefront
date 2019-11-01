@@ -1,4 +1,4 @@
-package com.sagar.solutions.storefront.domain.shoppingcounter;
+package sagar.solutions.storefront.domain.shoppingcounter;
 
 import lombok.*;
 

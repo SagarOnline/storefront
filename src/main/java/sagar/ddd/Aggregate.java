@@ -1,4 +1,4 @@
-package com.sagar.ddd;
+package sagar.ddd;
 
 /**
  * Interface defines the Aggregate concept of Domain Driven Design. All aggegate Classes should implement this

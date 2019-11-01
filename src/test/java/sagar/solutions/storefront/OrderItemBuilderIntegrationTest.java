@@ -1,12 +1,13 @@
-package com.sagar.solutions.storefront;
+package sagar.solutions.storefront;
 
 
-import com.sagar.solutions.storefront.domain.checkout.OrderItem;
-import com.sagar.solutions.storefront.domain.checkout.OrderItemBuilder;
-import com.sagar.solutions.storefront.domain.product.Product;
-import com.sagar.solutions.storefront.domain.cost.*;
-import com.sagar.solutions.storefront.domain.shoppingcart.CartItem;
-import com.sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
+import sagar.solutions.storefront.domain.checkout.OrderItem;
+import sagar.solutions.storefront.domain.checkout.OrderItemBuilder;
+import sagar.solutions.storefront.domain.cost.*;
+import sagar.solutions.storefront.domain.product.Product;
+import sagar.solutions.storefront.domain.cost.*;
+import sagar.solutions.storefront.domain.shoppingcart.CartItem;
+import sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

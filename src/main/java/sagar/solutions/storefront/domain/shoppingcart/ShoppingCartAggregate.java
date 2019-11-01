@@ -1,10 +1,10 @@
-package com.sagar.solutions.storefront.domain.shoppingcart;
+package sagar.solutions.storefront.domain.shoppingcart;
 
-import com.sagar.solutions.storefront.domain.checkout.PurchaseOrder;
-import com.sagar.solutions.storefront.domain.checkout.PurchaseOrderAggregate;
-import com.sagar.solutions.storefront.domain.checkout.PurchaseOrderBuilder;
-import com.sagar.solutions.storefront.domain.checkout.PurchaseOrderRepository;
-import com.sagar.solutions.storefront.domain.product.Product;
+import sagar.solutions.storefront.domain.checkout.PurchaseOrder;
+import sagar.solutions.storefront.domain.checkout.PurchaseOrderAggregate;
+import sagar.solutions.storefront.domain.checkout.PurchaseOrderBuilder;
+import sagar.solutions.storefront.domain.checkout.PurchaseOrderRepository;
+import sagar.solutions.storefront.domain.product.Product;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

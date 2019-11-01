@@ -1,7 +1,7 @@
-package com.sagar.solutions.storefront.domain.cost;
+package sagar.solutions.storefront.domain.cost;
 
-import com.sagar.solutions.storefront.domain.shoppingcart.CartItem;
-import com.sagar.solutions.storefront.util.BeanUtil;
+import sagar.solutions.storefront.domain.shoppingcart.CartItem;
+import sagar.solutions.storefront.util.BeanUtil;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 

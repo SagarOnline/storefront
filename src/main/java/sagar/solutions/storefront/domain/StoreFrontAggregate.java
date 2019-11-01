@@ -1,9 +1,9 @@
-package com.sagar.solutions.storefront.domain;
+package sagar.solutions.storefront.domain;
 
-import com.sagar.ddd.Aggregate;
-import com.sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounter;
-import com.sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterAggregate;
-import com.sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterRepository;
+import sagar.ddd.Aggregate;
+import sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounter;
+import sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterAggregate;
+import sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterRepository;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

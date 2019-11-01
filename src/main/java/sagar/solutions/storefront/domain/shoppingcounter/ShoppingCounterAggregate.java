@@ -1,9 +1,9 @@
-package com.sagar.solutions.storefront.domain.shoppingcounter;
+package sagar.solutions.storefront.domain.shoppingcounter;
 
-import com.sagar.ddd.Aggregate;
-import com.sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
-import com.sagar.solutions.storefront.domain.shoppingcart.ShoppingCartAggregate;
-import com.sagar.solutions.storefront.domain.shoppingcart.ShoppingCartRepository;
+import sagar.ddd.Aggregate;
+import sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
+import sagar.solutions.storefront.domain.shoppingcart.ShoppingCartAggregate;
+import sagar.solutions.storefront.domain.shoppingcart.ShoppingCartRepository;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

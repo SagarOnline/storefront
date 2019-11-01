@@ -1,6 +1,5 @@
-package com.sagar.solutions.storefront.domain.shoppingcart;
+package sagar.solutions.storefront.domain.shoppingcart;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

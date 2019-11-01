@@ -1,13 +1,13 @@
-package com.sagar.solutions.storefront;
+package sagar.solutions.storefront;
 
-import com.sagar.solutions.storefront.domain.StoreFrontAggregate;
-import com.sagar.solutions.storefront.domain.StoreFrontService;
-import com.sagar.solutions.storefront.domain.product.Product;
-import com.sagar.solutions.storefront.domain.cost.ProductCategory;
-import com.sagar.solutions.storefront.domain.shoppingcart.CartItem;
-import com.sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
-import com.sagar.solutions.storefront.domain.shoppingcart.ShoppingCartAggregate;
-import com.sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterAggregate;
+import sagar.solutions.storefront.domain.StoreFrontAggregate;
+import sagar.solutions.storefront.domain.StoreFrontService;
+import sagar.solutions.storefront.domain.product.Product;
+import sagar.solutions.storefront.domain.cost.ProductCategory;
+import sagar.solutions.storefront.domain.shoppingcart.CartItem;
+import sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
+import sagar.solutions.storefront.domain.shoppingcart.ShoppingCartAggregate;
+import sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterAggregate;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

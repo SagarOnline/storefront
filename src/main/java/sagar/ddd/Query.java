@@ -1,4 +1,4 @@
-package com.sagar.ddd;
+package sagar.ddd;
 
 /**
  * This interface represents a Query in CQRS pattern. Concreate class should represents the

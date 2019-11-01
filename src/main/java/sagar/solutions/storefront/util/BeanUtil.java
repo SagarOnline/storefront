@@ -1,4 +1,4 @@
-package com.sagar.solutions.storefront.util;
+package sagar.solutions.storefront.util;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

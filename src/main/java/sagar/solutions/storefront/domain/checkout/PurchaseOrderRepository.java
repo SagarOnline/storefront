@@ -1,4 +1,4 @@
-package com.sagar.solutions.storefront.domain.checkout;
+package sagar.solutions.storefront.domain.checkout;
 
 import org.springframework.data.repository.CrudRepository;
 

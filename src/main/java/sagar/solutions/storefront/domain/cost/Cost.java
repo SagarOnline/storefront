@@ -1,4 +1,4 @@
-package com.sagar.solutions.storefront.domain.cost;
+package sagar.solutions.storefront.domain.cost;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

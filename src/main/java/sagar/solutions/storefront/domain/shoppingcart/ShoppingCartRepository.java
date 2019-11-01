@@ -1,4 +1,4 @@
-package com.sagar.solutions.storefront.domain.shoppingcart;
+package sagar.solutions.storefront.domain.shoppingcart;
 
 import org.springframework.data.repository.CrudRepository;
 
