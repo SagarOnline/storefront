@@ -4,6 +4,7 @@ import sagar.solutions.storefront.domain.cost.Cost;
 import sagar.solutions.storefront.domain.cost.SalesTaxCalculator;
 import sagar.solutions.storefront.domain.shoppingcart.CartItem;
 import sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
+import sagar.solutions.storefront.util.BeanUtil;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class PurchaseOrderBuilder {
         PurchaseOrder purchaseOrder = new PurchaseOrder();
         purchaseOrder.setCustomerName(this.shoppingCart.getCustomerName());
 
-        SalesTaxCalculator salesTaxCalculator = SalesTaxCalculator.getInstance();
+        SalesTaxCalculator salesTaxCalculator = BeanUtil.getBean(SalesTaxCalculator.class);
         List<OrderItem> orderItemList = getOrderItems(salesTaxCalculator);
         purchaseOrder.setOrderItems(orderItemList);
 

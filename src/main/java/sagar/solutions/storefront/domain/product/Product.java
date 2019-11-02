@@ -1,6 +1,6 @@
 package sagar.solutions.storefront.domain.product;
 
-import sagar.solutions.storefront.domain.cost.ProductCategory;
+import sagar.solutions.storefront.domain.cost.SalesTaxCategory;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -24,7 +24,7 @@ public class Product {
 
     @NonNull
     @Enumerated
-    private ProductCategory salesTaxProductCategory;
+    private SalesTaxCategory salesTaxProductCategory;
 
     @NonNull
     private BigDecimal unitPrice;

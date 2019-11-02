@@ -1,10 +1,7 @@
 package sagar.solutions.storefront;
 
-import org.springframework.test.context.TestPropertySource;
 import sagar.solutions.storefront.domain.StoreFrontAggregate;
 import sagar.solutions.storefront.domain.StoreFrontService;
-import sagar.solutions.storefront.domain.product.Product;
-import sagar.solutions.storefront.domain.cost.ProductCategory;
 import sagar.solutions.storefront.domain.shoppingcart.CartItem;
 import sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
 import sagar.solutions.storefront.domain.shoppingcart.ShoppingCartAggregate;

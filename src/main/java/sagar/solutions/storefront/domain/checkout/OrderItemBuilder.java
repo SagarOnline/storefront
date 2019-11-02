@@ -3,6 +3,7 @@ package sagar.solutions.storefront.domain.checkout;
 import sagar.solutions.storefront.domain.cost.Cost;
 import sagar.solutions.storefront.domain.cost.SalesTaxCalculator;
 import sagar.solutions.storefront.domain.shoppingcart.CartItem;
+import sagar.solutions.storefront.util.BeanUtil;
 
 import java.math.BigDecimal;
 
@@ -20,7 +21,7 @@ public class OrderItemBuilder {
         }
 
         if(this.salesTaxCalculator == null){
-            salesTaxCalculator = SalesTaxCalculator.getInstance();
+            salesTaxCalculator = BeanUtil.getBean(SalesTaxCalculator.class);
         }
 
         OrderItem orderItem = new OrderItem();
