@@ -1,10 +1,10 @@
 package sagar.solutions.storefront.domain.cost;
 
+import java.math.BigDecimal;
+
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-
-import java.math.BigDecimal;
 
 @RequiredArgsConstructor
 public enum SalesTaxCategory {

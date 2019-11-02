@@ -1,11 +1,11 @@
 package sagar.solutions.storefront.domain.checkout;
 
-import sagar.ddd.Aggregate;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
+import sagar.ddd.Aggregate;
 
 @RequiredArgsConstructor
 public class PurchaseOrderAggregate implements Aggregate {

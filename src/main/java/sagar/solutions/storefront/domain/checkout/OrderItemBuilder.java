@@ -1,11 +1,11 @@
 package sagar.solutions.storefront.domain.checkout;
 
+import java.math.BigDecimal;
+
 import sagar.solutions.storefront.domain.cost.Cost;
 import sagar.solutions.storefront.domain.cost.SalesTaxCalculator;
 import sagar.solutions.storefront.domain.shoppingcart.CartItem;
 import sagar.solutions.storefront.util.BeanUtil;
-
-import java.math.BigDecimal;
 
 public class OrderItemBuilder {
     //TODO : Move this builder class into OrderItem class

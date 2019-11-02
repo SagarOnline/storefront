@@ -1,14 +1,14 @@
 package sagar.solutions.storefront.domain.checkout;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
 import sagar.solutions.storefront.domain.cost.Cost;
 import sagar.solutions.storefront.domain.cost.SalesTaxCalculator;
 import sagar.solutions.storefront.domain.shoppingcart.CartItem;
 import sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
 import sagar.solutions.storefront.util.BeanUtil;
-
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PurchaseOrderBuilder {
 

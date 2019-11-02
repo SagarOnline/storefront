@@ -1,12 +1,12 @@
 package sagar.solutions.storefront.domain.cost;
 
+import java.math.BigDecimal;
+
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.springframework.stereotype.Component;
 import sagar.solutions.storefront.domain.shoppingcart.CartItem;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-
-import java.math.BigDecimal;
 
 /**
  * This class have method {@link #calculateSalesTax(CartItem)} to calculate the Sales Tax on the Product Item added

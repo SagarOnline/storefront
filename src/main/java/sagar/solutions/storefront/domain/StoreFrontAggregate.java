@@ -1,18 +1,18 @@
 package sagar.solutions.storefront.domain;
 
-import sagar.ddd.Aggregate;
-import sagar.solutions.storefront.domain.scanning.Scanner;
-import sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounter;
-import sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterAggregate;
-import sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterRepository;
+import java.util.Optional;
+
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Optional;
+import sagar.ddd.Aggregate;
+import sagar.solutions.storefront.domain.scanning.Scanner;
+import sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounter;
+import sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterAggregate;
+import sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterRepository;
 
 @Getter
 public class StoreFrontAggregate implements Aggregate {

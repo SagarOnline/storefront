@@ -1,5 +1,8 @@
 package sagar.solutions.storefront.domain.shoppingcart;
 
+import java.math.BigDecimal;
+import javax.persistence.*;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -7,9 +10,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import sagar.solutions.storefront.domain.productcatalog.Product;
 import sagar.solutions.storefront.util.BeanUtil;
-
-import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Getter
 @NoArgsConstructor

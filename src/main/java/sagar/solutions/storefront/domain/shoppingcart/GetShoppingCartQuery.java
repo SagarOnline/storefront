@@ -1,9 +1,9 @@
 package sagar.solutions.storefront.domain.shoppingcart;
 
-import sagar.ddd.Query;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import sagar.ddd.Query;
 
 @RequiredArgsConstructor
 @Getter

@@ -1,5 +1,9 @@
 package sagar.solutions.storefront.domain.shoppingcart;
 
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Optional;
+
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -15,10 +19,6 @@ import sagar.solutions.storefront.domain.checkout.PurchaseOrderRepository;
 import sagar.solutions.storefront.domain.inventorymanagement.ProductInventory;
 import sagar.solutions.storefront.domain.inventorymanagement.ProductInventoryRepository;
 import sagar.solutions.storefront.domain.productcatalog.Product;
-
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 public class ShoppingCartAggregate {

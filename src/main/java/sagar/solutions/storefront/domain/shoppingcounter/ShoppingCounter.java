@@ -1,12 +1,12 @@
 package sagar.solutions.storefront.domain.shoppingcounter;
 
+import javax.persistence.*;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import sagar.solutions.storefront.domain.scanning.Scanner;
-
-import javax.persistence.*;
 
 @Entity
 @RequiredArgsConstructor

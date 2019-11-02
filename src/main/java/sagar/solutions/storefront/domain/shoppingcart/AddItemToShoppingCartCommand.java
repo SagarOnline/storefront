@@ -1,11 +1,11 @@
 package sagar.solutions.storefront.domain.shoppingcart;
 
-import sagar.solutions.storefront.domain.inventorymanagement.ProductInventory;
+import java.math.BigDecimal;
+
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-
-import java.math.BigDecimal;
+import sagar.solutions.storefront.domain.inventorymanagement.ProductInventory;
 
 @RequiredArgsConstructor
 @Getter

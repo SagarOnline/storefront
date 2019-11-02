@@ -1,8 +1,8 @@
 package sagar.solutions.storefront.domain.shoppingcounter;
 
-import org.springframework.data.repository.CrudRepository;
-
 import java.util.Optional;
+
+import org.springframework.data.repository.CrudRepository;
 
 public interface ShoppingCounterRepository extends CrudRepository<ShoppingCounter, Long> {
 

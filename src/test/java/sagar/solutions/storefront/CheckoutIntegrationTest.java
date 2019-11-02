@@ -12,7 +12,6 @@ import sagar.solutions.storefront.domain.StoreFrontAggregate;
 import sagar.solutions.storefront.domain.StoreFrontService;
 import sagar.solutions.storefront.domain.checkout.PurchaseOrder;
 import sagar.solutions.storefront.domain.checkout.PurchaseOrderAggregate;
-import sagar.solutions.storefront.domain.inventorymanagement.ProductInventory;
 import sagar.solutions.storefront.domain.inventorymanagement.ProductInventoryRepository;
 import sagar.solutions.storefront.domain.productcatalog.ProductRepository;
 import sagar.solutions.storefront.domain.shoppingcart.InsufficientStockException;
@@ -93,9 +92,10 @@ public class CheckoutIntegrationTest {
                         .getShoppingCounter(SHOPPING_COUNTER_NAME).get()
                         .startShoppingCart(CUSTOMER_NAME);
 
-            // try adding more than available stock
-            shoppingCartAggregate.addToCart(TestProduct.iphone,
-                    TestProductInventory.iphoneInventory.getAvailableStock().add(new BigDecimal(1)));
+        // try adding more than available stock
+        BigDecimal orderQuantity = TestProductInventory.iphoneInventory.getAvailableStock().add(new BigDecimal(1));
+        shoppingCartAggregate.addToCart(TestProduct.iphone,
+                orderQuantity);
 
     }
 }

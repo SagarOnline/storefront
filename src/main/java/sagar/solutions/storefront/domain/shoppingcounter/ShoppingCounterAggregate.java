@@ -1,13 +1,7 @@
 package sagar.solutions.storefront.domain.shoppingcounter;
 
-import sagar.ddd.Aggregate;
-import sagar.solutions.storefront.domain.inventorymanagement.ProductInventory;
-import sagar.solutions.storefront.domain.productcatalog.Product;
-import sagar.solutions.storefront.domain.productcatalog.ProductRepository;
-import sagar.solutions.storefront.domain.scanning.ScannerAggregate;
-import sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
-import sagar.solutions.storefront.domain.shoppingcart.ShoppingCartAggregate;
-import sagar.solutions.storefront.domain.shoppingcart.ShoppingCartRepository;
+import java.util.Optional;
+
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -16,8 +10,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Optional;
+import sagar.ddd.Aggregate;
+import sagar.solutions.storefront.domain.productcatalog.Product;
+import sagar.solutions.storefront.domain.productcatalog.ProductRepository;
+import sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
+import sagar.solutions.storefront.domain.shoppingcart.ShoppingCartAggregate;
+import sagar.solutions.storefront.domain.shoppingcart.ShoppingCartRepository;
 
 @RequiredArgsConstructor
 @Getter
@@ -25,9 +23,6 @@ public class ShoppingCounterAggregate implements Aggregate {
 
     @Autowired
     private ShoppingCartAggregate.ShoppingCartAggregateAggregateFactory shoppingCartAggregateAggregateFactory;
-
-    @Autowired
-    private ScannerAggregate.ScannerAggregateFactory scannerAggregateFactory;
 
     @Autowired
     private ShoppingCartRepository shoppingCartRepository;

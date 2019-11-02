@@ -1,9 +1,8 @@
 package sagar.solutions.storefront.domain.productcatalog;
 
-import org.springframework.data.repository.CrudRepository;
-import sagar.solutions.storefront.domain.inventorymanagement.ProductInventory;
-
 import java.util.Optional;
+
+import org.springframework.data.repository.CrudRepository;
 
 public interface ProductRepository extends CrudRepository<Product, Long> {
 

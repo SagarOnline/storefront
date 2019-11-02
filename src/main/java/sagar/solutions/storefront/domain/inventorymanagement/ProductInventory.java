@@ -1,14 +1,13 @@
 package sagar.solutions.storefront.domain.inventorymanagement;
 
-import sagar.solutions.storefront.domain.cost.SalesTaxCategory;
+import java.math.BigDecimal;
+import javax.persistence.*;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import sagar.solutions.storefront.domain.productcatalog.Product;
-
-import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Entity
 @NoArgsConstructor

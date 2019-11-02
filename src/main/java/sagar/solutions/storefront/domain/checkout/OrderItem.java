@@ -1,10 +1,10 @@
 package sagar.solutions.storefront.domain.checkout;
 
-import sagar.solutions.storefront.domain.cost.Cost;
-import lombok.Data;
-
-import javax.persistence.*;
 import java.math.BigDecimal;
+import javax.persistence.*;
+
+import lombok.Data;
+import sagar.solutions.storefront.domain.cost.Cost;
 
 @Data
 @Entity

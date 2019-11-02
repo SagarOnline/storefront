@@ -1,12 +1,12 @@
 package sagar.solutions.storefront.domain.cost;
 
+import java.math.BigDecimal;
+import javax.persistence.Embeddable;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-
-import javax.persistence.Embeddable;
-import java.math.BigDecimal;
 
 /**
  * Value object represents a Cost attributes associated with any purchased item. It have fields representing costs such
