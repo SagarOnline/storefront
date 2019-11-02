@@ -28,4 +28,7 @@ public class Product {
 
     @NonNull
     private BigDecimal unitPrice;
+
+    @NonNull
+    private BigDecimal availableStock;
 }

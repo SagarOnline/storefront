@@ -1,6 +1,7 @@
 package sagar.solutions.storefront.domain;
 
 import sagar.ddd.Aggregate;
+import sagar.solutions.storefront.domain.scanning.Scanner;
 import sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounter;
 import sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterAggregate;
 import sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterRepository;
@@ -33,7 +34,9 @@ public class StoreFrontAggregate implements Aggregate {
             throw new IllegalArgumentException("Shopping Counter with name " + name + " already exists. Please setup a" +
                     " counter with new Name");
         } else {
-            shoppingCounterRepository.save(new ShoppingCounter(name));
+            //TODO : ideally scanner should be passed by the caller of this method. But for now it is just created here.
+            Scanner scanner = new Scanner("LS400");
+            shoppingCounterRepository.save(new ShoppingCounter(name, scanner));
         }
 
     }

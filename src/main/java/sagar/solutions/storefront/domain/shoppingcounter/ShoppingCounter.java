@@ -1,11 +1,12 @@
 package sagar.solutions.storefront.domain.shoppingcounter;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import sagar.solutions.storefront.domain.scanning.Scanner;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @RequiredArgsConstructor
@@ -19,5 +20,9 @@ public class ShoppingCounter {
 
     @NonNull
     private String counterName;
+
+    @NonNull
+    @OneToOne(cascade = CascadeType.ALL)
+    private Scanner scanner;
 
 }

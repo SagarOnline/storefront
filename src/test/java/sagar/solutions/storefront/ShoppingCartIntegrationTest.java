@@ -1,5 +1,6 @@
 package sagar.solutions.storefront;
 
+import org.springframework.test.context.TestPropertySource;
 import sagar.solutions.storefront.domain.StoreFrontAggregate;
 import sagar.solutions.storefront.domain.StoreFrontService;
 import sagar.solutions.storefront.domain.product.Product;
@@ -16,6 +17,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
+import sagar.solutions.storefront.testdata.TestProduct;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -78,11 +80,9 @@ public class ShoppingCartIntegrationTest {
                 storeFrontService.getStoreFront()
                         .getShoppingCounter(SHOPPING_COUNTER_NAME).get()
                         .startShoppingCart(CUSTOMER_NAME);
-        shoppingCartAggregate.addToCart(new Product("iPhone 7 64 GB", ProductCategory.CATEGORY_A,
-                new BigDecimal(50000.00)), new BigDecimal(1));
+        shoppingCartAggregate.addToCart(TestProduct.iphone, new BigDecimal(1));
 
-        shoppingCartAggregate.addToCart(new Product("iPhone 7 Case", ProductCategory.CATEGORY_B,
-                new BigDecimal(200.00)), new BigDecimal(2));
+        shoppingCartAggregate.addToCart(TestProduct.iphoneCase, new BigDecimal(2));
         //shoppingCartAggregate.addToCart("iPhone 7 Case", 2);
         List<CartItem> itemsInCart = shoppingCartAggregate.getItemsInCart();
         assertEquals(2, itemsInCart.size());

@@ -3,7 +3,6 @@ package sagar.solutions.storefront;
 
 import sagar.solutions.storefront.domain.checkout.PurchaseOrder;
 import sagar.solutions.storefront.domain.checkout.PurchaseOrderBuilder;
-import sagar.solutions.storefront.domain.product.Product;
 import sagar.solutions.storefront.domain.cost.ProductCategory;
 import sagar.solutions.storefront.domain.cost.ProductCategorySalesTax;
 import sagar.solutions.storefront.domain.cost.ProductCategorySalesTaxRepository;
@@ -17,6 +16,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
+import sagar.solutions.storefront.testdata.TestProduct;
 
 import java.math.BigDecimal;
 
@@ -48,11 +48,9 @@ public class PurchaseOrderBuilderIntegrationTest {
         String customerName = "Sagar";
         ShoppingCart shoppingCart = new ShoppingCart(customerName);
 
-        Product iphone = new Product("iphone", ProductCategory.CATEGORY_A, new BigDecimal("60000"));
-        CartItem iphoneItem = new CartItem(iphone, new BigDecimal(1));
+        CartItem iphoneItem = new CartItem(TestProduct.iphone, new BigDecimal(1));
 
-        Product iphoneCase = new Product("iphone case", ProductCategory.CATEGORY_B, new BigDecimal("500"));
-        CartItem iphoneCaseItem = new CartItem(iphone, new BigDecimal(1));
+        CartItem iphoneCaseItem = new CartItem(TestProduct.iphoneCase, new BigDecimal(1));
 
         PurchaseOrderBuilder purchaseOrderBuilder = new PurchaseOrderBuilder();
         PurchaseOrder purchaseOrder = purchaseOrderBuilder.shoppingCart(shoppingCart)

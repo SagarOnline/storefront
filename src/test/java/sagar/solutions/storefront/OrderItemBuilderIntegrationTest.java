@@ -16,6 +16,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
+import sagar.solutions.storefront.testdata.TestProduct;
 
 import java.math.BigDecimal;
 
@@ -48,22 +49,19 @@ public class OrderItemBuilderIntegrationTest {
         String customerName = "Sagar";
         ShoppingCart shoppingCart = new ShoppingCart(customerName);
 
-        String productName = "iphone";
-        BigDecimal unitPrice = new BigDecimal("60000");
-        Product iphone = new Product(productName, ProductCategory.CATEGORY_A, unitPrice);
         BigDecimal quantity = new BigDecimal(1);
-        CartItem iphoneItem = new CartItem(iphone, quantity);
+        CartItem iphoneItem = new CartItem(TestProduct.iphone, quantity);
 
 
         OrderItemBuilder orderItemBuilder = new OrderItemBuilder();
         OrderItem orderItem = orderItemBuilder.cartItem(iphoneItem).salesTaxCalculator(SalesTaxCalculator.getInstance()).build();
 
         assertNotNull(orderItem);
-        assertEquals(productName, orderItem.getProductName());
-        assertEquals(unitPrice, orderItem.getUnitPrice());
+        assertEquals(iphoneItem.getProduct().getProductName(), orderItem.getProductName());
+        assertEquals(iphoneItem.getProduct().getUnitPrice(), orderItem.getUnitPrice());
 
         Cost totalCost = orderItem.getTotalCost();
-        assertEquals(unitPrice.multiply(quantity), totalCost.getGrossAmount());
+        assertEquals(iphoneItem.getProduct().getUnitPrice().multiply(quantity), totalCost.getGrossAmount());
 
     }
 }
