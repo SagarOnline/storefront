@@ -1,7 +1,7 @@
 package sagar.solutions.storefront.testdata;
 
 import sagar.solutions.storefront.domain.cost.SalesTaxCategory;
-import sagar.solutions.storefront.domain.product.Product;
+import sagar.solutions.storefront.domain.inventory.Product;
 
 import java.math.BigDecimal;
 

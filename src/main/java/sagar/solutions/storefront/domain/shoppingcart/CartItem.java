@@ -1,6 +1,6 @@
 package sagar.solutions.storefront.domain.shoppingcart;
 
-import sagar.solutions.storefront.domain.product.Product;
+import sagar.solutions.storefront.domain.inventory.Product;
 import sagar.solutions.storefront.util.BeanUtil;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

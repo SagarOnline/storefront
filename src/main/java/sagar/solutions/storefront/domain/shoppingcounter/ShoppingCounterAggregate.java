@@ -1,8 +1,7 @@
 package sagar.solutions.storefront.domain.shoppingcounter;
 
 import sagar.ddd.Aggregate;
-import sagar.solutions.storefront.domain.product.Product;
-import sagar.solutions.storefront.domain.scanning.Scanner;
+import sagar.solutions.storefront.domain.inventory.Product;
 import sagar.solutions.storefront.domain.scanning.ScannerAggregate;
 import sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
 import sagar.solutions.storefront.domain.shoppingcart.ShoppingCartAggregate;

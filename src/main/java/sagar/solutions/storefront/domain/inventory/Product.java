@@ -1,4 +1,4 @@
-package sagar.solutions.storefront.domain.product;
+package sagar.solutions.storefront.domain.inventory;
 
 import sagar.solutions.storefront.domain.cost.SalesTaxCategory;
 import lombok.Getter;
