@@ -1,7 +1,7 @@
 package sagar.solutions.storefront.domain.shoppingcounter;
 
 import sagar.ddd.Aggregate;
-import sagar.solutions.storefront.domain.inventory.Product;
+import sagar.solutions.storefront.domain.inventory.ProductInventory;
 import sagar.solutions.storefront.domain.scanning.ScannerAggregate;
 import sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
 import sagar.solutions.storefront.domain.shoppingcart.ShoppingCartAggregate;
@@ -49,7 +49,7 @@ public class ShoppingCounterAggregate implements Aggregate {
         return cart.map(value -> shoppingCartAggregateAggregateFactory.getShoppingCartAggregate(value));
     }
 
-    public Optional<Product>  scanProduct(String barCode){
+    public Optional<ProductInventory>  scanProduct(String barCode){
         return  null;
     }
 

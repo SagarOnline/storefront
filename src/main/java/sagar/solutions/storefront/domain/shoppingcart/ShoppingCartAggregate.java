@@ -4,7 +4,7 @@ import sagar.solutions.storefront.domain.checkout.PurchaseOrder;
 import sagar.solutions.storefront.domain.checkout.PurchaseOrderAggregate;
 import sagar.solutions.storefront.domain.checkout.PurchaseOrderBuilder;
 import sagar.solutions.storefront.domain.checkout.PurchaseOrderRepository;
-import sagar.solutions.storefront.domain.inventory.Product;
+import sagar.solutions.storefront.domain.inventory.ProductInventory;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -34,7 +34,7 @@ public class ShoppingCartAggregate {
     private ShoppingCart shoppingCart;
 
     @Transactional
-    public void addToCart(Product product, BigDecimal quantity){
+    public void addToCart(ProductInventory product, BigDecimal quantity){
         this.shoppingCart.getCartItemList().add(new CartItem(product, quantity));
 
     }

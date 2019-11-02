@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import sagar.ddd.Aggregate;
-import sagar.solutions.storefront.domain.inventory.Product;
+import sagar.solutions.storefront.domain.inventory.ProductInventory;
 
 import java.util.Optional;
 
@@ -16,7 +16,7 @@ public class ScannerAggregate implements Aggregate {
     @NonNull
     private  Scanner scanner;
 
-    public Optional<Product> scanProduct(String scanCode){
+    public Optional<ProductInventory> scanProduct(String scanCode){
         //TODO: implement it
         return null;
     }

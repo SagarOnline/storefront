@@ -1,6 +1,6 @@
 package sagar.solutions.storefront.domain.shoppingcart;
 
-import sagar.solutions.storefront.domain.inventory.Product;
+import sagar.solutions.storefront.domain.inventory.ProductInventory;
 import sagar.solutions.storefront.util.BeanUtil;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,7 +23,7 @@ public class CartItem {
 
     @NonNull
     @OneToOne(cascade = CascadeType.ALL)
-    private Product product;
+    private ProductInventory product;
 
     @NonNull
     private BigDecimal quantity;

@@ -1,6 +1,6 @@
 package sagar.solutions.storefront.domain.shoppingcart;
 
-import sagar.solutions.storefront.domain.inventory.Product;
+import sagar.solutions.storefront.domain.inventory.ProductInventory;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 public class AddItemToShoppingCartCommand {
 
     @NonNull
-    private Product product;
+    private ProductInventory product;
 
     @NonNull
     private BigDecimal quantity;

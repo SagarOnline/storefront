@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Getter
 @RequiredArgsConstructor
-public class Product {
+public class ProductInventory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
