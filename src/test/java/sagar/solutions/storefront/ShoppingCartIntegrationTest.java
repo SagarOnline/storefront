@@ -97,8 +97,8 @@ public class ShoppingCartIntegrationTest {
                         .getShoppingCounter(SHOPPING_COUNTER_NAME).get()
                         .startShoppingCart(CUSTOMER_NAME);
         try {
-            shoppingCartAggregate.addToCart(TestProduct.iphone, new BigDecimal(1));
-            shoppingCartAggregate.addToCart(TestProduct.iphoneCase, new BigDecimal(2));
+            shoppingCartAggregate.addToCart(TestProduct.iphone.getProductId(), new BigDecimal(1));
+            shoppingCartAggregate.addToCart(TestProduct.iphoneCase.getProductId(), new BigDecimal(2));
         } catch (InsufficientStockException e) {
             fail("Inventory check failed while adding a product in shopping cart");
         }

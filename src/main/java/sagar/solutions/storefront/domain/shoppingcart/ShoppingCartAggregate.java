@@ -19,6 +19,7 @@ import sagar.solutions.storefront.domain.checkout.PurchaseOrderRepository;
 import sagar.solutions.storefront.domain.inventorymanagement.ProductInventory;
 import sagar.solutions.storefront.domain.inventorymanagement.ProductInventoryRepository;
 import sagar.solutions.storefront.domain.productcatalog.Product;
+import sagar.solutions.storefront.domain.productcatalog.ProductRepository;
 
 @RequiredArgsConstructor
 public class ShoppingCartAggregate {
@@ -28,6 +29,9 @@ public class ShoppingCartAggregate {
 
     @Autowired
     private PurchaseOrderRepository purchaseOrderRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
 
     @Autowired
     private ProductInventoryRepository productInventoryRepository;
@@ -40,7 +44,8 @@ public class ShoppingCartAggregate {
     private ShoppingCart shoppingCart;
 
     @Transactional
-    public void addToCart(Product product, BigDecimal quantity) throws InsufficientStockException{
+    public void addToCart(Long productId, BigDecimal quantity) throws InsufficientStockException{
+        Product product = getProduct(productId);
         boolean isSufficientStockAvailable = isSufficientStockAvailable(product, quantity);
         if(isSufficientStockAvailable){
             this.shoppingCart.getCartItemList().add(new CartItem(product, quantity));
@@ -48,6 +53,14 @@ public class ShoppingCartAggregate {
             throw new InsufficientStockException("Not sufficient Stock available to match the order ");
         }
 
+    }
+
+    private Product getProduct(Long productId) {
+        Optional<Product> product = this.productRepository.findById(productId);
+        if(!product.isPresent()){
+            throw new IllegalArgumentException("Invalid Product id");
+        }
+        return product.get();
     }
 
     private boolean isSufficientStockAvailable(Product product, BigDecimal quantity) {

@@ -9,5 +9,8 @@ import lombok.RequiredArgsConstructor;
 public class CheckoutShoppingCartCommand {
 
     @NonNull
+    private Long shoppingCounterId;
+
+    @NonNull
     private Long shoppingCartId;
 }

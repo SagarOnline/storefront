@@ -64,8 +64,8 @@ public class CheckoutIntegrationTest {
 
 
         try {
-            shoppingCartAggregate.addToCart(TestProduct.iphone, new BigDecimal(1));
-            shoppingCartAggregate.addToCart(TestProduct.iphoneCase, new BigDecimal(2));
+            shoppingCartAggregate.addToCart(TestProduct.iphone.getProductId(), new BigDecimal(1));
+            shoppingCartAggregate.addToCart(TestProduct.iphoneCase.getProductId(), new BigDecimal(2));
         } catch (InsufficientStockException e) {
             fail("Inventory check failed while adding a product in shopping cart");
         }
@@ -94,7 +94,7 @@ public class CheckoutIntegrationTest {
 
         // try adding more than available stock
         BigDecimal orderQuantity = TestProductInventory.iphoneInventory.getAvailableStock().add(new BigDecimal(1));
-        shoppingCartAggregate.addToCart(TestProduct.iphone,
+        shoppingCartAggregate.addToCart(TestProduct.iphone.getProductId(),
                 orderQuantity);
 
     }

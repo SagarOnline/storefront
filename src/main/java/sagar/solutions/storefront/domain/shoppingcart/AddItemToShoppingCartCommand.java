@@ -5,14 +5,20 @@ import java.math.BigDecimal;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import sagar.solutions.storefront.domain.inventorymanagement.ProductInventory;
+import sagar.solutions.storefront.domain.productcatalog.Product;
 
 @RequiredArgsConstructor
 @Getter
 public class AddItemToShoppingCartCommand {
 
     @NonNull
-    private ProductInventory product;
+    private Long shoppingCounterId;
+
+    @NonNull
+    private Long shoppingCartId;
+
+    @NonNull
+    private Long productId;
 
     @NonNull
     private BigDecimal quantity;

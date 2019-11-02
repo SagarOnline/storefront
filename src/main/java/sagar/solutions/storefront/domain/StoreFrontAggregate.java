@@ -14,6 +14,9 @@ import sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounter;
 import sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterAggregate;
 import sagar.solutions.storefront.domain.shoppingcounter.ShoppingCounterRepository;
 
+/**
+ * This class represents a single Online Store.
+ */
 @Getter
 public class StoreFrontAggregate implements Aggregate {
 
@@ -25,18 +28,22 @@ public class StoreFrontAggregate implements Aggregate {
     @Autowired
     private ShoppingCounterRepository shoppingCounterRepository;
 
-
+    /**
+     * This method will a setup a new Shopping Counter in a store. Each shopping counter is identified by its unique
+     * shoppingCounterName within a Store.
+     * @param shoppingCounterName
+     */
     @Transactional
-    public void setupNewShoppingCounter(String name) {
+    public void setupNewShoppingCounter(String shoppingCounterName) {
 
-        Optional<ShoppingCounter> shoppingCounter = shoppingCounterRepository.findByCounterName(name);
+        Optional<ShoppingCounter> shoppingCounter = shoppingCounterRepository.findByCounterName(shoppingCounterName);
         if (shoppingCounter.isPresent()) {
-            throw new IllegalArgumentException("Shopping Counter with name " + name + " already exists. Please setup a" +
+            throw new IllegalArgumentException("Shopping Counter with shoppingCounterName " + shoppingCounterName + " already exists. Please setup a" +
                     " counter with new Name");
         } else {
             //TODO : ideally scanner should be passed by the caller of this method. But for now it is just created here.
             Scanner scanner = new Scanner("LS400");
-            shoppingCounterRepository.save(new ShoppingCounter(name, scanner));
+            shoppingCounterRepository.save(new ShoppingCounter(shoppingCounterName, scanner));
         }
 
     }
@@ -50,11 +57,11 @@ public class StoreFrontAggregate implements Aggregate {
     }
 
     @Configuration
-    public static class StoreFrontAggregateFactory{
+    public static class StoreFrontAggregateFactory {
 
         @Bean
         @Scope("prototype")
-        public StoreFrontAggregate getStoreFrontAggregate(){
+        public StoreFrontAggregate getStoreFrontAggregate() {
             // its implemented for a single store.
             return new StoreFrontAggregate();
         }

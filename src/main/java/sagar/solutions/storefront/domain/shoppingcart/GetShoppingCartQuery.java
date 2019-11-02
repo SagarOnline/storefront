@@ -10,5 +10,8 @@ import sagar.ddd.Query;
 public class GetShoppingCartQuery implements Query {
 
     @NonNull
+    private Long shoppingCounterId;
+
+    @NonNull
     private Long shopingCartId;
 }
