@@ -1,10 +1,10 @@
-package sagar.solutions.storefront.domain.inventory;
+package sagar.solutions.storefront.domain.productcatalog;
 
-import sagar.solutions.storefront.domain.cost.SalesTaxCategory;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import sagar.solutions.storefront.domain.cost.SalesTaxCategory;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Getter
 @RequiredArgsConstructor
-public class ProductInventory {
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,12 +23,12 @@ public class ProductInventory {
     private String productName;
 
     @NonNull
+    private String barCode;
+
+    @NonNull
     @Enumerated
     private SalesTaxCategory salesTaxProductCategory;
 
     @NonNull
     private BigDecimal unitPrice;
-
-    @NonNull
-    private BigDecimal availableStock;
 }

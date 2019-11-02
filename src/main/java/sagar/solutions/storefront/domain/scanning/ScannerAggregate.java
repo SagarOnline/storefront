@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import sagar.ddd.Aggregate;
-import sagar.solutions.storefront.domain.inventory.ProductInventory;
+import sagar.solutions.storefront.domain.inventorymanagement.ProductInventory;
 
 import java.util.Optional;
 

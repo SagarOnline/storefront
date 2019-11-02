@@ -12,19 +12,23 @@ import sagar.solutions.storefront.domain.StoreFrontAggregate;
 import sagar.solutions.storefront.domain.StoreFrontService;
 import sagar.solutions.storefront.domain.checkout.PurchaseOrder;
 import sagar.solutions.storefront.domain.checkout.PurchaseOrderAggregate;
+import sagar.solutions.storefront.domain.inventorymanagement.ProductInventory;
+import sagar.solutions.storefront.domain.inventorymanagement.ProductInventoryRepository;
+import sagar.solutions.storefront.domain.productcatalog.ProductRepository;
+import sagar.solutions.storefront.domain.shoppingcart.InsufficientStockException;
 import sagar.solutions.storefront.domain.shoppingcart.ShoppingCart;
 import sagar.solutions.storefront.domain.shoppingcart.ShoppingCartAggregate;
 import sagar.solutions.storefront.testdata.TestProduct;
+import sagar.solutions.storefront.testdata.TestProductInventory;
 
 import java.math.BigDecimal;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureTestDatabase
-@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_CLASS)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class CheckoutIntegrationTest {
 
     @Autowired
@@ -34,10 +38,22 @@ public class CheckoutIntegrationTest {
 
     private static String CUSTOMER_NAME = "Sagar";
 
+    @Autowired
+    private ProductInventoryRepository productInventoryRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
+
     @Before
     public void setup(){
         StoreFrontAggregate storeFront = storeFrontService.getStoreFront();
         storeFront.setupNewShoppingCounter(SHOPPING_COUNTER_NAME);
+
+        productRepository.save(TestProduct.iphone);
+        productRepository.save(TestProduct.iphoneCase);
+
+        productInventoryRepository.save(TestProductInventory.iphoneInventory);
+        productInventoryRepository.save(TestProductInventory.iphoneCaseInventory);
     }
 
     @Test
@@ -46,9 +62,14 @@ public class CheckoutIntegrationTest {
                 storeFrontService.getStoreFront()
                         .getShoppingCounter(SHOPPING_COUNTER_NAME).get()
                         .startShoppingCart(CUSTOMER_NAME);
-        shoppingCartAggregate.addToCart(TestProduct.iphone, new BigDecimal(1));
 
-        shoppingCartAggregate.addToCart(TestProduct.iphoneCase, new BigDecimal(2));
+
+        try {
+            shoppingCartAggregate.addToCart(TestProduct.iphone, new BigDecimal(1));
+            shoppingCartAggregate.addToCart(TestProduct.iphoneCase, new BigDecimal(2));
+        } catch (InsufficientStockException e) {
+            fail("Inventory check failed while adding a product in shopping cart");
+        }
 
         PurchaseOrderAggregate purchaseOrderAggregate = shoppingCartAggregate.checkoutCart();
         assertNotNull(purchaseOrderAggregate);
@@ -62,6 +83,19 @@ public class CheckoutIntegrationTest {
         assertEquals(ShoppingCart.CartStatus.CHECKEDOUT,
                     shoppingCartAggregate.getShoppingCart().getCartStatus());
         //TODO : add asserts to check Purchase Order Details
+
+    }
+
+    @Test(expected = InsufficientStockException.class)
+    public void testInventoryCheckOnAddingItemsToShoppingCart() throws InsufficientStockException{
+        ShoppingCartAggregate shoppingCartAggregate =
+                storeFrontService.getStoreFront()
+                        .getShoppingCounter(SHOPPING_COUNTER_NAME).get()
+                        .startShoppingCart(CUSTOMER_NAME);
+
+            // try adding more than available stock
+            shoppingCartAggregate.addToCart(TestProduct.iphone,
+                    TestProductInventory.iphoneInventory.getAvailableStock().add(new BigDecimal(1)));
 
     }
 }

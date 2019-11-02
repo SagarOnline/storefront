@@ -1,12 +1,12 @@
 package sagar.solutions.storefront.domain.shoppingcart;
 
-import sagar.solutions.storefront.domain.inventory.ProductInventory;
-import sagar.solutions.storefront.util.BeanUtil;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import sagar.solutions.storefront.domain.productcatalog.Product;
+import sagar.solutions.storefront.util.BeanUtil;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -23,7 +23,7 @@ public class CartItem {
 
     @NonNull
     @OneToOne(cascade = CascadeType.ALL)
-    private ProductInventory product;
+    private Product product;
 
     @NonNull
     private BigDecimal quantity;
