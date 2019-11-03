@@ -131,3 +131,17 @@ BigDecimal orderQuantity = ........
 shoppingCartAggregate.addToCart(productId, orderQuantity);
 
 ```
+
+#### Checkout a Shopping Cart
+
+Below code snippet shows an example to checkout a Shopping Cart.
+```
+ShoppingCartAggregate shoppingCartAggregate = ...;
+// .....
+// code to create shooping cart
+//..... 
+
+
+PurchaseOrder purchaseOrder = purchaseOrderAggregate.getPurchaseOrder();
+
+```
