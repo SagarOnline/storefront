@@ -1,7 +1,12 @@
 package sagar.solutions.storefront.domain.checkout;
 
 import java.math.BigDecimal;
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Embedded;
+
 
 import lombok.Data;
 import sagar.solutions.storefront.domain.cost.Cost;

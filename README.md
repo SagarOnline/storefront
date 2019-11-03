@@ -75,7 +75,7 @@ This section have implementation details of the domain model
 Examples of Aggregates in this implementation are ```StoreFrontAggreage```,  ```ShoppingCounterAggreage```,```ShoppingCartAggreage```.
 These aggregates encapsulate the operations on aggregate roots. For e.g. ```ShoppingCartAggreage.checkout()``` operation checks out a shopping cart represented by that aggregate instance.
 Thus it runs the validations required, generates a PurchaseOrder entity and updates a purchase order reference in ShoppingCart entity.
-Aggregates also mark transactionsl boundry around opetations.
+Aggregates also mark a transactional boundry around these operations.
 
 #### Repositories
 Examples of Repositories in this implementation are ```PurchaseOrderRepository```,  ```ProductRepository```,```ShoppingCartRepository```.

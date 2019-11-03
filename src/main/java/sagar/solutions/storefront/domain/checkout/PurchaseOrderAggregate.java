@@ -11,19 +11,18 @@ import sagar.ddd.Aggregate;
 public class PurchaseOrderAggregate implements Aggregate {
 
     @NonNull
-    private  PurchaseOrder purchaseOrder;
+    private final PurchaseOrder purchaseOrder;
 
     public PurchaseOrder getPurchaseOrder() {
         return purchaseOrder;
     }
-
 
     @Configuration
     public static class PurchaseOrderAggregateAggregateFactory{
 
         @Bean
         @Scope("prototype")
-        public PurchaseOrderAggregate getPurchaseOrderAggregate(PurchaseOrder purchaseOrder){
+        public PurchaseOrderAggregate getPurchaseOrderAggregate(final PurchaseOrder purchaseOrder){
             return new PurchaseOrderAggregate(purchaseOrder);
         }
     }
